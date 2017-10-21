@@ -1,7 +1,0 @@
-.DS_Store
-.env
-.env.test
-node_modules/
-dist
-event.json
-*.zip
