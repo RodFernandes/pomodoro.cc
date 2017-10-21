@@ -14,7 +14,12 @@ require('./passport.init')(server)
 console.log('initialized auth')
 
 server.use(morgan(':status\t :method\t :response-time ms\t :date[clf]\t :url\t\t'))
-server.use(cors())
+server.use(cors({
+  origin: ['https://pomodoro.cc', 'https://beta.pomodoro.cc', 'https://app.pomodoro.cc'],
+  methods: ['HEAD', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  allowedHeaders: ['cookie', 'with_credentials'],
+  credentials: true
+}))
 server.use(cookieParser())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
