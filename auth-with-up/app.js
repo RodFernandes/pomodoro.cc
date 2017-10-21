@@ -15,7 +15,7 @@ console.log('initialized auth')
 
 server.use(morgan(':status\t :method\t :response-time ms\t :date[clf]\t :url\t\t'))
 server.use(cors({
-  origin: ['https://pomodoro.cc', 'http://beta.pomodoro.cc', 'https://beta.pomodoro.cc', 'https://app.pomodoro.cc', 'http://localhost:9000'],
+  origin: ['https://pomodoro.cc', 'http://beta.pomodoro.cc', 'https://beta.pomodoro.cc', 'https://app.pomodoro.cc', 'https://dev.pomodoro.cc', 'http://dev.pomodoro.cc'],
   methods: ['HEAD', 'GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   allowedHeaders: ['cookie', 'with_credentials'],
   credentials: true
