@@ -1,7 +1,7 @@
 {
-  "name": "auth-with-up",
+  "name": "auth",
   "version": "1.0.0",
-  "description": "auth.",
+  "description": "auth for pomodoro.cc",
   "main": "index.js",
   "scripts": {
     "test": "ava --verbose",
