@@ -1,6 +1,0 @@
-{
-  "name": "pomodoro-payments-create-subscription",
-  "cors": {
-    "enable": true
-  }
-}
