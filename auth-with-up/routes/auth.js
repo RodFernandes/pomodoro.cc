@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const passport = require('passport')
-const developmentRedirectRoutes = {failureRedirect: 'dev.pomodoro.cc', successRedirect: 'dev.pomodoro.cc'}
-const productionRedirectRoutes = {failureRedirect: 'pomodoro.cc', successRedirect: 'pomodoro.cc'}
+const developmentRedirectRoutes = {failureRedirect: 'https://dev.pomodoro.cc', successRedirect: 'https://dev.pomodoro.cc'}
+const productionRedirectRoutes = {failureRedirect: 'https://beta.pomodoro.cc', successRedirect: 'https://beta.pomodoro.cc'}
 const redirectRoutes = (process.env.UP_STAGE === 'development' || process.env.NODE_ENV === 'development') ? developmentRedirectRoutes : productionRedirectRoutes
 const User = require('../models/User')
 
