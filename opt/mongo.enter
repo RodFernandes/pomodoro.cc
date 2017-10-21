@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker run --rm -it --link pomodoro-auth-db:mongo_alias mongo sh -c "mongo --host mongo_alias"

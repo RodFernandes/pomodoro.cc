@@ -1,7 +1,0 @@
-#!/bin/bash
-
-BACKUP_FILENAME=$(date +\%Y-\%m-\%d--\%H-\%M-\%S)
-BACKUP_FILENAME=$BACKUP_FILENAME.sql
-echo "-- ATTEMPTING TO BACKUP TO $BACKUP_FILENAME"
-
-docker run --rm -it --link pomodoro-api-db:pomodoro-api-db -v /pomodoro.cc/backup:/backup kiasaki/alpine-postgres pg_dump pomodoro_cc -h pomodoro-api-db --user postgres -f /backup/$BACKUP_FILENAME --create --clean --if-exists

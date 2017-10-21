@@ -1,5 +1,0 @@
-#!/bin/bash
-
-DIR=$1
-docker run --rm -it --link pomodoro-auth-db:mongo_alias -v $DIR:/dump mongo mongorestore -d pomodoro --drop --host mongo_alias /dump
-

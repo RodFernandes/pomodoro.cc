@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -e
-
-docker pull christianfei/pomodoro-main
-docker pull christianfei/pomodoro-app
-docker pull christianfei/pomodoro-auth
-docker pull christianfei/pomodoro-api
-docker pull christianfei/pomodoro-docs

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-DIR=$1
-
-docker run --rm -it --link pomodoro-auth-db:mongo_alias -v $DIR:/backup mongo mongodump --host mongo_alias --out /backup/
