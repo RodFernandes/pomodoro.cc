@@ -2,7 +2,7 @@
   "name": "pomodoro-auth",
   "cors": {
     "enable": true,
-    "allowed_origins": ["https://pomodoro.cc", "https://beta.pomodoro.cc", "https://app.pomodoro.cc"],
+    "allowed_origins": ["https://pomodoro.cc", "http://beta.pomodoro.cc", "https://beta.pomodoro.cc", "https://app.pomodoro.cc", "https://dev.pomodoro.cc", "http://dev.pomodoro.cc", "http://dev.pomodoro.cc:9000"],
     "allowed_methods": ["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"],
     "allowed_headers": ["cookie", "with_credentials"]
   },
