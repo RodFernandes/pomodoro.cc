@@ -28,6 +28,14 @@ please install & configure [`up`](https://apex.github.io/up/) and setup your aws
 up deploy [production|development] -v
 ```
 
+### deploy all
+
+```
+npm run deploy
+
+npm run stack:apply
+```
+
 ### apply changes to stack
 
 This command applies changes to Route 53 endpoints, Cloudfront aliases and stages dns mapping.
