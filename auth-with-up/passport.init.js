@@ -12,6 +12,18 @@ module.exports = function (app) {
     resave: true,
     saveUninitialized: true,
     secret: 'foo',
+    cookie: {
+      domain: '.pomodoro.cc'
+      // maxAge?: number;
+      // signed?: boolean;
+      // expires?: Date | boolean;
+      // httpOnly?: boolean;
+      // path?: string;
+      // domain?: string;
+      // secure?: boolean | 'auto';
+      // encode?: (val: string) => void;
+      // sameSite?: boolean | string;
+    },
     store: new MongoStore({
       collection: 'sessions',
       url: process.env.MONGO_URL
