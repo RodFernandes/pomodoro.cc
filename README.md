@@ -101,5 +101,7 @@ run `docker ps` to get a list of the running processes and `docker logs -f [cont
 
 # Development metrics
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/christian-fei/pomodoro.cc.svg?columns=all)](http://waffle.io/christian-fei/pomodoro.cc)
+
 [![Throughput Graph](https://graphs.waffle.io/christian-fei/pomodoro.cc/throughput.svg)](https://waffle.io/christian-fei/pomodoro.cc/metrics)
 
