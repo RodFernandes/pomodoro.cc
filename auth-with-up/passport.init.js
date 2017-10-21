@@ -13,7 +13,8 @@ module.exports = function (app) {
     saveUninitialized: true,
     secret: 'foo',
     cookie: {
-      domain: '.pomodoro.cc'
+      domain: '.pomodoro.cc',
+      sameSite: false
       // maxAge?: number;
       // signed?: boolean;
       // expires?: Date | boolean;
