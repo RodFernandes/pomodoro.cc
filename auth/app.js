@@ -9,7 +9,7 @@ const {PORT = 3000, HOST, UP_STAGE} = process.env
 server.listen(PORT)
 console.log(`listening @ https://${HOST} (${UP_STAGE})`)
 
-require('./init/mongo')()
+require('./init/mongo')(process.env.MONGO_URL)
 require('./passport.init')(server)
 console.log('initialized auth')
 

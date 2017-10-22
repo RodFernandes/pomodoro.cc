@@ -1,8 +1,8 @@
 require('dotenv').config()
-const mongoose = require('mongoose')
+const monk = require('monk')
+let db
 
-module.exports = function () {
-  return mongoose.connect(process.env.MONGO_URL, {
-    useMongoClient: true
-  })
+module.exports = function (url) {
+  if (!db) db = monk(url)
+  return db
 }
