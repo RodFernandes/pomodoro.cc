@@ -55,23 +55,17 @@ module.exports = function (app) {
 
   function authenticatedUser (token, tokenSecret, profile, done) {
     var user = new UserInfo(profile).toJSON()
-    User.findOne({
-      id: user.id
-    }, handleUser(done, profile))
-  }
 
-  function handleUser (done, profile) {
-    return function (err, user) {
-      if (err) {
-        return done(err, null)
-      }
-      if (user) {
-        return done(null, user)
-      }
-      User.create(new UserInfo(profile), function (err, user) {
-        if (err) return done(err, null)
-        done(null, user)
-      })
-    }
+    User.findOne({id: user.id})
+    .then(user => {
+      if (user) return done(null, user)
+      User.insert(new UserInfo(profile))
+        .then(user => {
+          done(null, user)
+        })
+        .catch(err => {
+          if (err) return done(err, null)
+        })
+    })
   }
 }
