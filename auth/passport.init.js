@@ -1,4 +1,4 @@
-require('dotenv').load()
+require('dotenv').config()
 const passport = require('passport')
 const UserInfo = require('./modules/UserInfo')
 const TwitterStrategy = require('passport-twitter').Strategy

@@ -1,4 +1,4 @@
-require('dotenv').load()
+require('dotenv').config()
 const mongoose = require('mongoose')
 
 module.exports = function () {

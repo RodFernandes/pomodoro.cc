@@ -1,4 +1,4 @@
-require('dotenv').load()
+require('dotenv').config()
 const server = require('express')()
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
