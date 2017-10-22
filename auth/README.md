@@ -28,6 +28,15 @@ please install & configure [`up`](https://apex.github.io/up/) and setup your aws
 up deploy [production|development] -v
 ```
 
+## test
+
+configure MONGO_URL in `.env`
+
+```
+ENV=test npm start
+npm t
+```
+
 ### deploy all
 
 ```
