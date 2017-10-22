@@ -20,20 +20,18 @@
     "nodemon": "^1.12.1"
   },
   "dependencies": {
-    "r2": "git+https://github.com/mikeal/r2.git",
     "body-parser": "^1.18.2",
-    "connect-mongo": "^2.0.0",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
-    "mongodb": "^2.2.33",
-    "mongoose": "^4.12.3",
+    "monk": "^6.0.5",
     "morgan": "^1.9.0",
     "passport": "^0.4.0",
     "passport-github": "^1.1.0",
-    "passport-twitter": "^1.0.4"
+    "passport-twitter": "^1.0.4",
+    "r2": "git+https://github.com/mikeal/r2.git"
   },
   "standard": {
     "env": {
