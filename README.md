@@ -17,6 +17,10 @@ View the readme of the service you would like to contribute to :)
 
 Also check out [CONTRIBUTING.md](CONTRIBUTING.md)
 
+## Getting started
+
+set up the projects `app` and `auth`
+
 ## Development metrics
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/christian-fei/pomodoro.cc.svg?columns=all)](http://waffle.io/christian-fei/pomodoro.cc)
