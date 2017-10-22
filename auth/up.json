@@ -6,6 +6,16 @@
     "allowed_methods": ["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"],
     "allowed_headers": ["cookie", "with_credentials"]
   },
+  "headers": {
+    "/*": {
+      "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+      "Content-Security-Policy": "script-src 'self'",
+      "X-Frame-Options": "SAMEORIGIN",
+      "X-XSS-Protection": "1; mode=block",
+      "X-Content-Type-Options": "nosniff",
+      "Referrer-Policy": "strict-origin-when-cross-origin"
+    }
+  },
   "regions": ["eu-central-1"],
   "lambda": {
     "memory": 128
