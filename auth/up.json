@@ -22,9 +22,6 @@
   "stages": {
     "production": {
       "domain": "auth.pomodoro.cc"
-    },
-    "development": {
-      "domain": "dev-auth.pomodoro.cc"
     }
   }
 }
