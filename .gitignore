@@ -21,3 +21,5 @@ reports
 backup
 opt/docker.env
 api/rel
+app/.cache/
+app/dist/
