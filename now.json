@@ -1,8 +1,0 @@
-{
-  "version": 2,
-  "builds": [{
-    "src": "auth/package.json", "use": "@now/node"
-  }, {
-    "src": "app/package.json", "use": "@now/static-build"
-  }]
-}
