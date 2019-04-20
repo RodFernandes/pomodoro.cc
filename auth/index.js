@@ -6,7 +6,11 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 const { PORT = 3000 } = process.env
-server.listen(PORT)
+if (process.env.NOW || process.env.now) {
+  server.listen()
+} else {
+  server.listen(PORT)
+}
 console.log(`listening @ https://auth.pomodoro.cc (PORT ${PORT})`)
 
 require('./init/mongo')(process.env.MONGO_URL)
