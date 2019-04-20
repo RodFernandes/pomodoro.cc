@@ -1,4 +1,5 @@
-require('dotenv').config()
+if (process.env)
+  {require('dotenv').config()}
 const passport = require('passport')
 const UserInfo = require('./modules/UserInfo')
 const TwitterStrategy = require('passport-twitter').Strategy
@@ -56,16 +57,16 @@ module.exports = function (app) {
   function authenticatedUser (token, tokenSecret, profile, done) {
     var user = new UserInfo(profile).toJSON()
 
-    User.findOne({id: user.id})
-    .then(user => {
-      if (user) return done(null, user)
-      User.insert(new UserInfo(profile))
-        .then(user => {
-          done(null, user)
-        })
-        .catch(err => {
-          if (err) return done(err, null)
-        })
-    })
+    User.findOne({ id: user.id })
+      .then(user => {
+        if (user) return done(null, user)
+        User.insert(new UserInfo(profile))
+          .then(user => {
+            done(null, user)
+          })
+          .catch(err => {
+            if (err) return done(err, null)
+          })
+      })
   }
 }

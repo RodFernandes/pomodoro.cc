@@ -1,5 +1,5 @@
 let router = require('express').Router()
-if (!process.env.NOW && !process.env.now) {
+if (!process.env.NOW_REGION) {
   console.log('in now environment')
   router = require('..')
 } else {

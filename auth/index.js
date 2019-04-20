@@ -6,7 +6,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 
 const { PORT = 3000 } = process.env
-if (process.env.NOW || process.env.now) {
+if (process.env.NOW_REGION) {
   server.listen()
 } else {
   server.listen(PORT)
@@ -28,7 +28,7 @@ server.use(cookieParser())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 
-if (!process.env.NOW && !process.env.now) {
+if (!process.env.NOW_REGION) {
   server.use(require('./routes'))
   console.log('registered routes')
 }
