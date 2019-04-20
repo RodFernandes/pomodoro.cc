@@ -1,7 +1,10 @@
-const router = require('express').Router()
+let router = require('express').Router()
+if (!process.env.NOW && !process.env.now) {
+  router = require('..')
+}
 const passport = require('passport')
-const developmentRedirectRoutes = {failureRedirect: 'https://dev.pomodoro.cc', successRedirect: 'https://dev.pomodoro.cc'}
-const productionRedirectRoutes = {failureRedirect: 'https://pomodoro.cc', successRedirect: 'https://pomodoro.cc'}
+const developmentRedirectRoutes = { failureRedirect: 'https://dev.pomodoro.cc', successRedirect: 'https://dev.pomodoro.cc' }
+const productionRedirectRoutes = { failureRedirect: 'https://pomodoro.cc', successRedirect: 'https://pomodoro.cc' }
 const redirectRoutes = (process.env.UP_STAGE === 'development' || process.env.NODE_ENV === 'development') ? developmentRedirectRoutes : productionRedirectRoutes
 const User = require('../models/User')
 
@@ -30,7 +33,7 @@ router.get('/info', function (req, res) {
 
   if (!apikey) return unauthorized(res)
 
-  User.findOne({apikey: apikey}, function (err, user) {
+  User.findOne({ apikey: apikey }, function (err, user) {
     if (err) {
       return unauthorized(res)
     }

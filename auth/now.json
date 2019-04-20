@@ -3,7 +3,7 @@
   "name": "auth.pomodoro.cc",
   "alias": "auth.pomodoro.cc",
   "builds": [{
-    "src": "/**/*.js", "use": "@now/node"
+    "src": "/routes/*.js", "use": "@now/node"
   }],
   "routes": [{
     "src": "/healthcheck", "dest": "/routes/healthcheck.js"

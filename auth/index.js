@@ -24,7 +24,9 @@ server.use(cookieParser())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 
-server.use(require('./routes'))
-console.log('registered routes')
+if (!process.env.NOW && !process.env.now) {
+  server.use(require('./routes'))
+  console.log('registered routes')
+}
 
 module.exports = server
