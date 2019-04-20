@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 
-const {PORT = 3000, HOST, UP_STAGE} = process.env
+const { PORT = 3000, HOST, UP_STAGE } = process.env
 server.listen(PORT)
 console.log(`listening @ https://${HOST} (${UP_STAGE})`)
 

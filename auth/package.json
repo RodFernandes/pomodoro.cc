@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "ava --verbose",
-    "start": "node app.js",
-    "dev": "NODE_ENV=development nodemon app.js",
+    "start": "node index.js",
+    "dev": "NODE_ENV=development nodemon index.js",
     "deploy": "npm run deploy:staging; npm run deploy:production",
     "deploy:staging": "up deploy staging",
     "deploy:production": "up deploy production",
