@@ -2,10 +2,11 @@
   "version": 2,
   "name": "auth.pomodoro.cc",
   "alias": "auth.pomodoro.cc",
-  "builds": [{
-    "src": "**/*.js", "use": "@now/node@canary"
-  }],
-  "routes": [{
-    "src": "/healthcheck", "dest": "routes/healthcheck.js"
-  }]
+  "files": [".env"],
+  "builds": [
+    { "src": "index.js", "use": "@now/node-server" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.js" }
+  ]
 }
