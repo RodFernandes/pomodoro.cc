@@ -6,15 +6,9 @@
     "src": "routes/healthcheck.js", "use": "@now/node"
   }, {
     "src": "routes/auth.js", "use": "@now/node"
-  }, {
-    "src": "routes/index.js", "use": "@now/node"
   }],
   "routes": [{
     "src": "/healthcheck", "dest": "routes/healthcheck.js"
-  }, {
-    "src": "/", "dest": "routes/index.js"
-  }, {
-    "src": "/auth", "dest": "routes/auth.js"
   }, {
     "src": "/auth/twitter", "dest": "routes/auth.js"
   }, {

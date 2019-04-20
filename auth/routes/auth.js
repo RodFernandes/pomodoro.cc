@@ -1,6 +1,9 @@
 let router = require('express').Router()
 if (!process.env.NOW && !process.env.now) {
+  console.log('in now environment')
   router = require('..')
+} else {
+  console.log('not in now environment')
 }
 const passport = require('passport')
 const developmentRedirectRoutes = { failureRedirect: 'https://dev.pomodoro.cc', successRedirect: 'https://dev.pomodoro.cc' }
