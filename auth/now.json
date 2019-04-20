@@ -3,8 +3,8 @@
   "name": "auth.pomodoro.cc",
   "alias": "auth.pomodoro.cc",
   "routes": [{
-    "src": "/auth*", "dest": "/routes/auth.js"
-  }, {
     "src": "/healthcheck", "dest": "/routes/healthcheck.js"
+  }, {
+    "src": "/*", "dest": "/routes/auth.js"
   }]
 }
