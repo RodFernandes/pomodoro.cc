@@ -5,6 +5,8 @@
     "src": "index.js", "use": "@now/node-server"
   }],
   "routes": [{
-    "src": "/(.*)", "dest": "/index.js"
+    "src": "/auth", "dest": "/routes/auth.js",
+  }, {
+    "src": "/healthcheck", "dest": "/routes/healthcheck.js"
   }]
 }
