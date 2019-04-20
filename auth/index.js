@@ -27,9 +27,10 @@ server.use(cookieParser())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 
-if (!process.env.NOW_REGION) {
-  server.use(require('./routes'))
-  console.log('registered routes')
-}
+server.use(require('./routes'))
+console.log('registered routes')
+server.get('/', (req, res) => {
+  res.end()
+})
 
 module.exports = server
