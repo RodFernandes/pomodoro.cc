@@ -2,9 +2,6 @@
   "version": 2,
   "name": "auth.pomodoro.cc",
   "alias": "auth.pomodoro.cc",
-  "builds": [{
-    "src": "index.js", "use": "@now/node-server"
-  }],
   "routes": [{
     "src": "/auth*", "dest": "/routes/auth.js"
   }, {
