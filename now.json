@@ -3,6 +3,6 @@
   "builds": [{
     "src": "auth/package.json", "use": "@now/node"
   }, {
-    "src": "app/dist/index.html", "use": "@now/static"
+    "src": "app/package.json", "use": "@now/static-build"
   }]
 }
