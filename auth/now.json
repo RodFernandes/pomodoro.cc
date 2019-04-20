@@ -8,6 +8,8 @@
   "routes": [{
     "src": "/healthcheck", "dest": "/routes/healthcheck.js"
   }, {
-    "src": "/*", "dest": "/routes/auth.js"
+    "src": "/auth/twitter", "dest": "/routes/auth.js"
+  }, {
+    "src": "/auth/github", "dest": "/routes/auth.js"
   }]
 }
