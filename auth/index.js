@@ -8,7 +8,7 @@ const morgan = require('morgan')
 console.log('env', process.env)
 const { PORT = 3000 } = process.env
 if (process.env.NOW_REGION) {
-  server.listen()
+  server.listen(8080)
 } else {
   server.listen(PORT)
 }
