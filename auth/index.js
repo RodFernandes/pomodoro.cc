@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
 
+console.log('env', process.env)
 const { PORT = 3000 } = process.env
 if (process.env.NOW_REGION) {
   server.listen()
