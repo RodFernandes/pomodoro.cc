@@ -12,6 +12,7 @@ if (!process.env.NOW_REGION) {
 }
 console.log(`listening @ https://auth.pomodoro.cc (PORT ${PORT})`)
 
+console.log('process.env.MONGO_URL', process.env.MONGO_URL)
 require('./init/mongo')(process.env.MONGO_URL)
 require('./passport.init')(server)
 console.log('initialized auth')
