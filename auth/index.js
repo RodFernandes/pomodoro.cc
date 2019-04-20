@@ -7,9 +7,7 @@ const morgan = require('morgan')
 
 console.log('env', process.env)
 const { PORT = 3000 } = process.env
-if (process.env.NOW_REGION) {
-  server.listen(8080)
-} else {
+if (!process.env.NOW_REGION) {
   server.listen(PORT)
 }
 console.log(`listening @ https://auth.pomodoro.cc (PORT ${PORT})`)
