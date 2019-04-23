@@ -9,3 +9,4 @@ if (process.env.ENV === 'DEV' || process.env.NODE_ENV === 'test' || process.env.
 module.exports = router
   // .use('/', require('./auth'))
   .use('/healthcheck', require('./healthcheck'))
+  .use('/', require('./healthcheck'))
