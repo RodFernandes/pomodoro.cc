@@ -14,7 +14,7 @@ console.log(`listening @ https://auth.pomodoro.cc (PORT ${PORT})`)
 
 console.log('MONGO_URL', process.env.MONGO_URL)
 require('./init/mongo')(process.env.MONGO_URL)
-require('./passport.init')(server)
+// require('./passport.init')(server)
 console.log('initialized auth')
 
 server.use(morgan(':status\t :method\t :response-time ms\t :date[clf]\t :url\t\t'))
