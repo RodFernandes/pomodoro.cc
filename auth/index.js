@@ -30,6 +30,7 @@ server.use(bodyParser.urlencoded({ extended: true }))
 server.use(require('./routes'))
 console.log('registered routes')
 server.get('/', (req, res) => {
+  res.sendStatus(200)
   res.end()
 })
 
