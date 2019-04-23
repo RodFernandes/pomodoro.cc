@@ -32,6 +32,7 @@ module.exports = function (app) {
   }))
 
   app.use(passport.initialize())
+  console.log('initialized auth')
   app.use(passport.session())
 
   passport.serializeUser(function (user, done) {
