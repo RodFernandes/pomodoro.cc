@@ -27,7 +27,7 @@ server.use(cookieParser())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: true }))
 
-server.use(require('./routes'))
+// server.use(require('./routes'))
 console.log('registered routes')
 server.get('/', (req, res) => {
   res.sendStatus(200)
