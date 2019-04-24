@@ -18,6 +18,7 @@
   "routes": [
     { "src": "/", "dest": "/routes/healthcheck.js" },
     { "src": "/healthcheck", "dest": "/routes/healthcheck.js" },
+    { "src": "/info", "dest": "/routes/auth-twitter.js" },
     { "src": "/twitter", "dest": "/routes/auth-twitter.js" },
     { "src": "/twitter/callback*", "dest": "/routes/auth-twitter.js" }
   ]

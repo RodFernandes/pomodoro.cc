@@ -62,6 +62,11 @@ passport.deserializeUser(function (user, done) {
 
 const redirectRoutes = { failureRedirect: 'https://pomodoro.cc', successRedirect: 'https://pomodoro.cc' }
 
+app.get('/info', (req, res) => {
+  console.log('res.user', res.user)
+  console.log('res.session', res.session)
+  res.send(res.user)
+})
 app.get('/twitter', passport.authenticate('twitter'))
 app.get('/twitter/callback', passport.authenticate('twitter', redirectRoutes))
 app.get('/github', passport.authenticate('github'))
