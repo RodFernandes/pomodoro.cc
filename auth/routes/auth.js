@@ -65,7 +65,7 @@ const redirectRoutes = { failureRedirect: 'https://pomodoro.cc', successRedirect
 app.get('/info', (req, res) => {
   console.log('req.user', req.user)
   // console.log('req.session', req.session)
-  res.write(req.user)
+  res.json(req.user)
   // res.redirect('https://pomodoro.cc')
 })
 app.get('/twitter', passport.authenticate('twitter'))
