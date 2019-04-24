@@ -4,9 +4,11 @@
   "alias": "auth.pomodoro.cc",
   "files": [".env"],
   "builds": [
-    { "src": "*.js", "use": "@now/node" }
+    { "src": "index.js", "use": "@now/node" },
+    { "src": "routes/healthcheck.js", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/*", "dest": "/index.js" }
+    { "src": "/", "dest": "/routes/healthcheck.js" },
+    { "src": "/healthcheck", "dest": "/routes/healthcheck.js" }
   ]
 }
