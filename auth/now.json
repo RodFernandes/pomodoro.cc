@@ -13,13 +13,13 @@
   },
   "builds": [
     { "src": "routes/healthcheck.js", "use": "@now/node" },
-    { "src": "routes/auth-twitter.js", "use": "@now/node" }
+    { "src": "routes/auth.js", "use": "@now/node" }
   ],
   "routes": [
     { "src": "/", "dest": "/routes/healthcheck.js" },
     { "src": "/healthcheck", "dest": "/routes/healthcheck.js" },
-    { "src": "/info", "dest": "/routes/auth-twitter.js" },
-    { "src": "/twitter", "dest": "/routes/auth-twitter.js" },
-    { "src": "/twitter/callback*", "dest": "/routes/auth-twitter.js" }
+    { "src": "/info", "dest": "/routes/auth.js", "headers": { "Access-Control-Allow-Origin": "*" } },
+    { "src": "/twitter", "dest": "/routes/auth.js" },
+    { "src": "/twitter/callback*", "dest": "/routes/auth.js" }
   ]
 }
