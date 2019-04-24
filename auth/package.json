@@ -7,10 +7,7 @@
     "test": "ava --verbose",
     "start": "node index.js",
     "dev": "NODE_ENV=development nodemon index.js",
-    "deploy": "npm run deploy:staging; npm run deploy:production",
-    "deploy:staging": "up deploy staging",
-    "deploy:production": "up deploy production",
-    "stack:apply": "up stack plan && up stack apply"
+    "deploy": "now --target production"
   },
   "keywords": [],
   "author": "",
