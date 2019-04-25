@@ -10,8 +10,6 @@ if (!process.env.NOW_REGION) {
 }
 
 console.log('MONGO_URL', process.env.MONGO_URL)
-// require('./mongo.init')(process.env.MONGO_URL)
-// require('./passport.init')(app)
 
 app.set('trust proxy', 1)
 app.use(...middlewares)

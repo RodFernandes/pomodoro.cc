@@ -1,3 +1,3 @@
-const db = require('../mongo.init')(process.env.MONGO_URL)
+const db = require('../db')
 
 module.exports = db.get('users')
