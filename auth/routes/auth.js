@@ -30,12 +30,12 @@ passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   callbackURL: process.env.TWITTER_CALLBACK_URL
-}, authenticatedUser))
+}, upsertAuthenticatedUser))
 passport.use(new GithubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: process.env.GITHUB_CALLBACK_URL
-}, authenticatedUser))
+}, upsertAuthenticatedUser))
 
 passport.serializeUser(function (user, done) {
   done(null, user)
@@ -61,7 +61,7 @@ app.get('/twitter/callback', passport.authenticate('twitter', redirectRoutes))
 app.get('/github', passport.authenticate('github'))
 app.get('/github/callback', passport.authenticate('github', redirectRoutes))
 
-function authenticatedUser (token, tokenSecret, profile, done) {
+function upsertAuthenticatedUser (token, tokenSecret, profile, done) {
   var user = new UserInfo(profile).toJSON()
 
   User.findOne({ id: user.id })
