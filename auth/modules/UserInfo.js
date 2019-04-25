@@ -1,11 +1,14 @@
+const crypto = require('crypto')
+
 module.exports = function UserInfo (raw) {
   var self = this
 
-  self.apikey = require('crypto').randomBytes(20).toString('hex')
+  self.apikey = crypto.randomBytes(20).toString('hex')
 
   self.username = self.avatar = self.id = null
 
   self.id = raw.id
+
   switch (raw.provider) {
     case 'twitter':
       self.username = raw.username
