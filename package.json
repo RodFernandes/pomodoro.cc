@@ -1,0 +1,25 @@
+{
+  "name": "pomodoro.cc",
+  "version": "1.0.0",
+  "description": "## Boost your productivity ### Manage your time more effectively",
+  "main": "index.js",
+  "scripts": {
+    "presentation": "mdx-deck index.mdx",
+    "build:presentation": "mdx-deck build index.mdx",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christian-fei/pomodoro.cc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christian-fei/pomodoro.cc/issues"
+  },
+  "homepage": "https://github.com/christian-fei/pomodoro.cc#readme",
+  "devDependencies": {
+    "mdx-deck": "^2.3.2"
+  }
+}
