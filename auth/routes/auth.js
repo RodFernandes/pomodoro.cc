@@ -2,6 +2,7 @@ const app = require('../app')
 const passport = require('passport')
 const session = require('express-session')
 const TwitterStrategy = require('passport-twitter').Strategy
+const GithubStrategy = require('passport-github').Strategy
 const MongoStore = require('connect-mongo')(session)
 const UserInfo = require('../modules/UserInfo')
 const User = require('../models/User')
@@ -27,6 +28,11 @@ passport.use(new TwitterStrategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   callbackURL: process.env.TWITTER_CALLBACK_URL
+}, authenticatedUser))
+passport.use(new GithubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
+  callbackURL: process.env.GITHUB_CALLBACK_URL
 }, authenticatedUser))
 
 function authenticatedUser (token, tokenSecret, profile, done) {
