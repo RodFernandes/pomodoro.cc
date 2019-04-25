@@ -20,6 +20,7 @@
     { "src": "/", "dest": "/routes/healthcheck.js" },
     { "src": "/healthcheck", "dest": "/routes/healthcheck.js" },
     { "src": "/info", "dest": "/routes/auth.js", "headers": { "Access-Control-Allow-Origin": "*" } },
+    { "src": "/logout", "dest": "/routes/auth.js", "headers": { "Access-Control-Allow-Origin": "*" } },
     { "src": "/twitter", "dest": "/routes/auth.js" },
     { "src": "/twitter/callback*", "dest": "/routes/auth.js" },
     { "src": "/github", "dest": "/routes/auth.js" },

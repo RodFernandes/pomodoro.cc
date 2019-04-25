@@ -51,6 +51,11 @@ app.get('/info', (req, res) => {
   console.log('req.user', req.user)
   res.json(req.user)
 })
+app.get('/logout', (req, res) => {
+  console.log('req.user', req.user)
+  req.logout()
+  res.end()
+})
 app.get('/twitter', passport.authenticate('twitter'))
 app.get('/twitter/callback', passport.authenticate('twitter', redirectRoutes))
 app.get('/github', passport.authenticate('github'))
