@@ -1,26 +1,33 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1
-workflows:
+jobs:
   build:
-    jobs:
-      - run:
-          name: Install app deps
-          command: |
-            cd app
-            npm i
-            npm i -g now
-      - cypress/install:
-          build: 'cd app ; npm run build'  # run a custom app build step
-      - cypress/run:
-          requires:
-            - cypress/install
-          record: false        # record results on Cypress Dashboard
-          parallel: false      # split all specs across machines
-          group: 'pomodoro.cc'  # name this group "all tests" on the dashboard
-          start: 'now dev'  # start server before running tests
+    - checkout
+    - run:
+        name: Install deps
+        command: |
+          npm i
+          cd app
+          npm i
+          npm i -g now
+  test:
+    steps:
+      - checkout
       - run:
           name: app tests
           command: |
             cd app
             npm t
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
+      - cypress/run:
+          record: false        # record results on Cypress Dashboard
+          parallel: false      # split all specs across machines
+          group: 'pomodoro.cc'  # name this group "all tests" on the dashboard
+          start: 'now dev'  # start server before running tests
