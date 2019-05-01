@@ -1,0 +1,1 @@
+- statistics about full pomodoros and partials pomodoros
