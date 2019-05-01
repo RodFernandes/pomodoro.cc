@@ -21,5 +21,9 @@
   "homepage": "https://github.com/christian-fei/pomodoro.cc#readme",
   "devDependencies": {
     "mdx-deck": "^2.3.2"
+  },
+  "standard": {
+    "env": ["browser", "mocha"],
+    "globals": ["cy", "Cypress", "expect", "assert"]
   }
 }
