@@ -65,7 +65,7 @@ jobs:
       - run:
           name: deploy app
           command: |
-            npm i -g now
+            npm i -g --unsafe-perm now
             cd app
             now --target production --token $NOW_TOKEN
 
