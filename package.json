@@ -6,6 +6,7 @@
   "scripts": {
     "presentation": "mdx-deck index.mdx",
     "build:presentation": "mdx-deck build index.mdx",
+    "deploy:presentation": "now --target production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
