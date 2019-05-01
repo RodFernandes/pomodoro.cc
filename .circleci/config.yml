@@ -30,6 +30,6 @@ jobs:
           name: uat
           command: |
             cd app
-            npm start &
-            wait 5000
+            npm install -g wait-on
+            npm start & wait-on http://localhost:1234
             npm run cypress -- run
