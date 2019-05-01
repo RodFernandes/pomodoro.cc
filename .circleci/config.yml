@@ -57,6 +57,18 @@ jobs:
             npm start & wait-on http://localhost:1234
             npm run cypress -- run
 
+  deploy_app:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: deploy app
+          command: |
+            npm i -g now
+            cd app
+            npm run deploy -- --token ${ZEIT_TOKEN}
+
 workflows:
   version: 2
   build_and_test:
@@ -68,3 +80,6 @@ workflows:
       - uat:
           requires:
             - test
+      - deploy_app:
+          requires:
+            - uat
