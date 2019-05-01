@@ -33,13 +33,24 @@ jobs:
             - .cache
             - pomodoro.cc
 
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: test
+          command: |
+            cd app
+            npm t
+
   uat:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/
       - run:
-          name: Running E2E tests A
+          name: uat
           command: |
             npm i -g wait-on
             cd app
@@ -51,6 +62,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - uat:
+      - test:
           requires:
             - build
+      - uat:
+          requires:
+            - test
