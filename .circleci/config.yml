@@ -67,7 +67,7 @@ jobs:
           command: |
             npm i -g now
             cd app
-            npm run deploy -- --token ${ZEIT_TOKEN}
+            npm run deploy -- --token $ZEIT_TOKEN
 
 workflows:
   version: 2
