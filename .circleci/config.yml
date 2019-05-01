@@ -1,33 +1,56 @@
-version: 2.1
-orbs:
-  cypress: cypress-io/cypress@1
+version: 2
+
+# build job parameters as a template
+defaults: &defaults
+  working_directory: ~/pomodoro.cc
+  docker:
+    - image: cypress/base:8
+      environment:
+        TERM: xterm
+
 jobs:
   build:
-    - checkout
-    - run:
-        name: Install deps
-        command: |
-          npm i
-          cd app
-          npm i
-          npm i -g now
-  test:
+    <<: *defaults
     steps:
       - checkout
+      - run: pwd
+      - run: ls
+      - restore_cache:
+          keys:
+          - v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          - v2-deps-{{ .Branch }}-
+          - v2-deps-
+      - run: npm install
+      - run: cd app ; npm install
+      - save_cache:
+          key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - .cache
+            - pomodoro.cc
+
+  uat:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
       - run:
-          name: app tests
+          name: Running E2E tests A
           command: |
+            npm i -g wait-on
             cd app
-            npm t
+            npm start & wait-on http://localhost:8080
+            npm run cypress -- run
 
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - test
-      - cypress/run:
-          record: false        # record results on Cypress Dashboard
-          parallel: false      # split all specs across machines
-          group: 'pomodoro.cc'  # name this group "all tests" on the dashboard
-          start: 'now dev'  # start server before running tests
+      - uat:
+          requires:
+            - build
