@@ -1,35 +1,26 @@
-version: 2
-jobs:
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
   build:
-    docker:
-      - image: circleci/node:10.10
-
-    working_directory: ~/pomodoro.cc
-
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
+    jobs:
       - run:
           name: Install app deps
           command: |
             cd app
             npm i
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            npm i -g now
+      - cypress/install:
+          build: 'cd app ; npm run build'  # run a custom app build step
+      - cypress/run:
+          requires:
+            - cypress/install
+          record: false        # record results on Cypress Dashboard
+          parallel: false      # split all specs across machines
+          group: 'pomodoro.cc'  # name this group "all tests" on the dashboard
+          start: 'now dev'  # start server before running tests
       - run:
           name: app tests
           command: |
             cd app
             npm t
-      - run:
-          name: uat
-          command: |
-            cd app
-            npm install -g wait-on
-            npm start & wait-on http://localhost:1234
-            npm run cypress -- run
