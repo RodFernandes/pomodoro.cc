@@ -67,7 +67,7 @@ jobs:
           command: |
             npm i -g --unsafe-perm now
             cd app
-            now --target production --token $NOW_TOKEN
+            npm run deploy --silent -- --token $NOW_TOKEN
 
 workflows:
   version: 2
