@@ -67,7 +67,7 @@ jobs:
           command: |
             npm i -g now
             cd app
-            npm run deploy
+            now --target production --token $NOW_TOKEN
 
 workflows:
   version: 2
