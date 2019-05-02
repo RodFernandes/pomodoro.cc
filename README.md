@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/christian-fei/pomodoro.cc.svg?style=svg)](https://circleci.com/gh/christian-fei/pomodoro.cc)
+[![CircleCI](https://circleci.com/gh/christian-fei/pomodoro.cc/tree/master.svg?style=svg)](https://circleci.com/gh/christian-fei/pomodoro.cc/tree/master)
 
 # pomodoro.cc
 
