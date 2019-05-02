@@ -69,6 +69,18 @@ jobs:
             cd app
             npm run deploy --silent -- --token $NOW_TOKEN
 
+  deploy_auth:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run:
+          name: deploy auth
+          command: |
+            npm i -g --unsafe-perm now
+            cd auth
+            npm run deploy --silent -- --token $NOW_TOKEN
+
 workflows:
   version: 2
   build_and_test:
@@ -81,5 +93,8 @@ workflows:
           requires:
             - test
       - deploy_app:
+          requires:
+            - uat
+      - deploy_auth:
           requires:
             - uat
