@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/christian-fei/pomodoro.cc.svg?style=svg)](https://circleci.com/gh/christian-fei/pomodoro.cc)
+
 # pomodoro.cc
 
 ## Boost your productivity
