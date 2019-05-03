@@ -1,4 +1,4 @@
-auth for pomodoro.cc
+api for pomodoro.cc
 
 ## requirements
 

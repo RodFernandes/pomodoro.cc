@@ -1,7 +1,7 @@
 {
-  "name": "auth",
+  "name": "api.pomodoro.cc",
   "version": "1.0.0",
-  "description": "auth for pomodoro.cc",
+  "description": "api for pomodoro.cc",
   "main": "index.js",
   "scripts": {
     "test": "ava --verbose",
