@@ -1,1 +1,3 @@
 - statistics about full pomodoros and partials pomodoros
+- visualize breaks
+- visualize partial pomodoros
