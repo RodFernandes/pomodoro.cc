@@ -4,10 +4,7 @@
   "description": "## Boost your productivity ### Manage your time more effectively",
   "main": "index.js",
   "scripts": {
-    "presentation": "mdx-deck index.mdx",
-    "build:presentation": "mdx-deck build index.mdx",
-    "deploy:presentation": "now --target production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"works\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -20,11 +17,17 @@
     "url": "https://github.com/christian-fei/pomodoro.cc/issues"
   },
   "homepage": "https://github.com/christian-fei/pomodoro.cc#readme",
-  "devDependencies": {
-    "mdx-deck": "^2.3.2"
-  },
+  "devDependencies": {},
   "standard": {
-    "env": ["browser", "mocha"],
-    "globals": ["cy", "Cypress", "expect", "assert"]
+    "env": [
+      "browser",
+      "mocha"
+    ],
+    "globals": [
+      "cy",
+      "Cypress",
+      "expect",
+      "assert"
+    ]
   }
 }
