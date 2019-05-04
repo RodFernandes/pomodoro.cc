@@ -27,7 +27,7 @@ jobs:
             - ~/.npm
             - ~/.cache
       - run: cd app ; npm install
-      - run: cd auth ; npm install
+      - run: cd api ; npm install
       - persist_to_workspace:
           root: ~/
           paths:
@@ -53,7 +53,7 @@ jobs:
           name: test_auth
           command: |
             npm i -g wait-on
-            cd auth
+            cd api
             now dev --token $NOW_TOKEN & wait-on http://localhost:3000
             npm t
 
