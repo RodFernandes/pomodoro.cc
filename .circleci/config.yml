@@ -44,13 +44,13 @@ jobs:
           command: |
             cd app
             npm t
-  test_auth:
+  test_api:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/
       - run:
-          name: test_auth
+          name: test_api
           command: |
             npm i -g wait-on
             cd api
@@ -82,7 +82,7 @@ jobs:
             cd app
             npm run deploy --silent -- --token $NOW_TOKEN
 
-  deploy_auth:
+  deploy_api:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -108,6 +108,6 @@ workflows:
       - deploy_app:
           requires:
             - uat
-      - deploy_auth:
+      - deploy_api:
           requires:
             - uat
