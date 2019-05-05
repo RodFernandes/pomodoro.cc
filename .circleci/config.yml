@@ -44,6 +44,7 @@ jobs:
           command: |
             cd app
             npm t
+
   test_api:
     <<: *defaults
     steps:
@@ -52,8 +53,10 @@ jobs:
       - run:
           name: test_api
           command: |
+            npm i -g --unsafe-perm now
             npm i -g wait-on
             cd api
+            echo -e "TWITTER_CONSUMER_KEY=\nTWITTER_CONSUMER_SECRET=\nTWITTER_CALLBACK_URL=\nGITHUB_CLIENT_ID=\nGITHUB_CLIENT_SECRET=\nGITHUB_CALLBACK_URL=\nMONGO_URL=mongodb://127.0.0.1:27017\nHOST=api.pomodoro.cc" > .env
             now dev --token $NOW_TOKEN & wait-on http://localhost:3000
             npm t
 
@@ -102,9 +105,13 @@ workflows:
       - test_app:
           requires:
             - build
+      - test_api:
+          requires:
+            - build
       - uat:
           requires:
             - test_app
+            - test_api
       - deploy_app:
           requires:
             - uat
