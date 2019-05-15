@@ -53,6 +53,7 @@ jobs:
       - run:
           name: test_api
           command: |
+            npm cache clean -f || exit 0
             npm i -g --unsafe-perm now
             npm i -g wait-on
             cd api
