@@ -28,11 +28,11 @@ jobs:
       #       # - ~/.cache
       - run: cd app ; npm install
       - run: cd api ; npm install
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            # - .cache
-            - pomodoro.cc
+      # - persist_to_workspace:
+      #     root: ~/
+      #     paths:
+      #       # - .cache
+      #       - pomodoro.cc
 
   test_app:
     <<: *defaults
@@ -48,8 +48,8 @@ jobs:
   test_api:
     <<: *defaults
     steps:
-      # - attach_workspace:
-      #     at: ~/
+      - attach_workspace:
+          at: ~/
       - run:
           name: test_api
           command: |
