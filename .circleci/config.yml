@@ -21,11 +21,11 @@ jobs:
           - v2-deps-{{ .Branch }}-
           - v2-deps-
       - run: npm install
-      - save_cache:
-          key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ~/.npm
-            # - ~/.cache
+      # - save_cache:
+      #     key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      #     paths:
+      #       - ~/.npm
+      #       # - ~/.cache
       - run: cd app ; npm install
       - run: cd api ; npm install
       - persist_to_workspace:
@@ -54,7 +54,7 @@ jobs:
           name: test_api
           command: |
             npm cache clean -f || exit 0
-            npm i -g now
+            npm i -g --unsafe-perm now
             npm i -g wait-on
             cd api
             echo -e "TWITTER_CONSUMER_KEY=\nTWITTER_CONSUMER_SECRET=\nTWITTER_CALLBACK_URL=\nGITHUB_CLIENT_ID=\nGITHUB_CLIENT_SECRET=\nGITHUB_CALLBACK_URL=\nMONGO_URL=mongodb://127.0.0.1:27017\nHOST=api.pomodoro.cc" > .env
