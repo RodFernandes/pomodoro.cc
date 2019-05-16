@@ -48,8 +48,8 @@ jobs:
   test_api:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: ~/
+      # - attach_workspace:
+      #     at: ~/
       - run:
           name: test_api
           command: |
