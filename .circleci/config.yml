@@ -58,7 +58,7 @@ jobs:
             npm install -g --unsafe-perm now@canary
             npm i -g wait-on
             cd api
-            echo -e "TWITTER_CONSUMER_KEY=\nTWITTER_CONSUMER_SECRET=\nTWITTER_CALLBACK_URL=\nGITHUB_CLIENT_ID=\nGITHUB_CLIENT_SECRET=\nGITHUB_CALLBACK_URL=\nMONGO_URL=mongodb://127.0.0.1:27017\nHOST=api.pomodoro.cc\nPUSHER_APP_ID=\nPUSHER_KEY=\nPUSHER_SECRET=\nSENTRY_DSN=" > .env
+            echo -e "NODE_ENV=test\nTWITTER_CONSUMER_KEY=\nTWITTER_CONSUMER_SECRET=\nTWITTER_CALLBACK_URL=\nGITHUB_CLIENT_ID=\nGITHUB_CLIENT_SECRET=\nGITHUB_CALLBACK_URL=\nMONGO_URL=mongodb://127.0.0.1:27017\nHOST=api.pomodoro.cc\nPUSHER_APP_ID=\nPUSHER_KEY=\nPUSHER_SECRET=\nSENTRY_DSN=" > .env
             now dev --token $NOW_TOKEN & wait-on http://localhost:3000
             npm t
 
