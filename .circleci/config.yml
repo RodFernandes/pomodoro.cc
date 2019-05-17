@@ -54,7 +54,8 @@ jobs:
           name: test_api
           command: |
             npm cache clean -f || exit 0
-            npm i -g --unsafe-perm now
+            # npm i -g --unsafe-perm now
+            npm install -g --unsafe-perm now@canary
             npm i -g wait-on
             cd api
             echo -e "TWITTER_CONSUMER_KEY=\nTWITTER_CONSUMER_SECRET=\nTWITTER_CALLBACK_URL=\nGITHUB_CLIENT_ID=\nGITHUB_CLIENT_SECRET=\nGITHUB_CALLBACK_URL=\nMONGO_URL=mongodb://127.0.0.1:27017\nHOST=api.pomodoro.cc\nPUSHER_APP_ID=\nPUSHER_KEY=\nPUSHER_SECRET=\nSENTRY_DSN=" > .env
@@ -82,7 +83,8 @@ jobs:
       - run:
           name: deploy app
           command: |
-            npm i -g --unsafe-perm now
+            npm install -g --unsafe-perm now@canary
+            # npm i -g --unsafe-perm now
             cd app
             npm run deploy --silent -- --token $NOW_TOKEN
 
@@ -94,7 +96,8 @@ jobs:
       - run:
           name: deploy api
           command: |
-            npm i -g --unsafe-perm now
+            npm install -g --unsafe-perm now@canary
+            # npm i -g --unsafe-perm now
             cd api
             npm run deploy --silent -- --token $NOW_TOKEN
 
