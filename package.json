@@ -29,5 +29,9 @@
       "expect",
       "assert"
     ]
+  },
+  "dependencies": {
+    "monk": "^7.0.0",
+    "stripe": "^7.1.0"
   }
 }
