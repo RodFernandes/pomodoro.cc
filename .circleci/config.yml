@@ -7,6 +7,7 @@ defaults: &defaults
     - image: cypress/base:8
       environment:
         TERM: xterm
+    - image: mongo:3.4.4-jessie
 
 jobs:
   build:
