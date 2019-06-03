@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-const monk = require('monk')
 const User = require('../api/models/User')
 
 if (require.main === module) {
@@ -30,9 +29,14 @@ async function main () {
     if (doc.subscription && doc.subscription.id) {
       pause()
       const subscription = await getSubscription(doc.subscription.id)
-      console.log('new subscription', subscription)
-      await User.findOneAndUpdate({ _id: monk.id(doc._id) }, { $set: { subscription, subscriptionUpdatedAt: new Date(), previousSubscription: doc.subscription } })
-      console.log('updated subscription')
+      console.log('------------------------------------------------------------------')
+      console.log('user.username', doc.username)
+      console.log('subscription.id', subscription.id)
+      console.log('subscription.status', subscription.status)
+      console.log('subscription.created', new Date(subscription.created * 1000).toISOString())
+      console.log('subscription.current_period_start', new Date(subscription.current_period_start * 1000).toISOString())
+      console.log('subscription.current_period_end', new Date(subscription.current_period_end * 1000).toISOString())
+      console.log('------------------------------------------------------------------')
       resume()
     }
   })
