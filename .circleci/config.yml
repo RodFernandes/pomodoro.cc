@@ -73,6 +73,7 @@ jobs:
           command: |
             npm i -g wait-on
             cd app
+            npm i cypress
             npm start & wait-on http://localhost:1234
             npm run cypress -- run
 
