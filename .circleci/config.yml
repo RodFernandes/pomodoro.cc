@@ -116,11 +116,14 @@ workflows:
             - build
       - uat:
           requires:
-            - test_app
-            - test_api
+            - build
       - deploy_app:
           requires:
+            - test_app
+            - test_api
             - uat
       - deploy_api:
           requires:
+            - test_app
+            - test_api
             - uat
