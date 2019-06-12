@@ -25,20 +25,24 @@ async function main (param) {
   events
     .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
     .forEach(e => {
-      let value = e.email || e.customerId || (e.user && e.user.username)
+      const createdAt = e.createdAt
+      const username = e.user && e.user.username
+      const eventName = e.name
+      let additionalInfo = ''
+
       if (e.name === 'createUserSucceeded') {
-        value = e.user && e.user.username
+        additionalInfo = e.user && e.user.username
       }
       if (e.name === 'userAuthenticated') {
-        value = e.user && e.user.username
+        additionalInfo = e.user && e.user.username
       }
       if (e.name === 'createPomodoro') {
-        value = e.user && e.user.username
+        additionalInfo = e.user && e.user.username
       }
       if (e.name === 'pomodoroFailedValidation') {
-        value = `${e.user && e.user.username}\n\terrors ${(e.errors || []).join(', ')}\n\tpomodoro: ${JSON.stringify(e.pomodoro || {})}`
+        additionalInfo = `${e.user && e.user.username}\n\terrors: ${(e.errors || []).join(', ')}\n\tpomodoro: ${JSON.stringify(e.pomodoro || {})}`
       }
 
-      console.log(`${e.createdAt} ${e.name} -> ${value} (${e._id})`)
+      console.log(`${createdAt} [${e._id}] ${eventName} by user ${username} ${additionalInfo}`)
     })
 }
