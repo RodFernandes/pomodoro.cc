@@ -35,6 +35,9 @@ async function main (param) {
       if (e.name === 'createPomodoro') {
         value = e.user && e.user.username
       }
+      if (e.name === 'pomodoroFailedValidation') {
+        value = `${e.user && e.user.username}\n\terrors ${(e.errors || []).join(', ')}\n\tpomodoro: ${JSON.stringify(e.pomodoro || {})}`
+      }
 
       console.log(`${e.createdAt} ${e.name} -> ${value} (${e._id})`)
     })
