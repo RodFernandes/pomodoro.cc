@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 const Event = require('../api/models/Event')
+const chalk = require('chalk')
+const stringToColor = require('string-to-color')
 
 if (require.main === module) {
   main(process.argv[2])
@@ -43,6 +45,6 @@ async function main (param) {
         additionalInfo = `${e.user && e.user.username}\n\terrors: ${(e.errors || []).join(', ')}\n\tpomodoro: ${JSON.stringify(e.pomodoro || {})}`
       }
 
-      console.log(`${createdAt} [${e._id}] ${eventName} by user ${username} ${additionalInfo}`)
+      console.log(`${chalk.blue(createdAt)} ${chalk.white(e._id)} ${chalk.hex(stringToColor(eventName)).bold(eventName)} by user ${chalk.yellow(username)} ${additionalInfo}`)
     })
 }
