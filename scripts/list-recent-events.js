@@ -18,15 +18,24 @@ module.exports = main
 
 async function main (param) {
   if (param) {
-    return Event.find({_id: param}).then(console.log)
+    return Event.find({ _id: param }).then(console.log)
   }
 
-  const events = await Event.find({}, { limit: 50, sort: { createdAt: 1 } })
-  events.forEach(e => {
-    let value = e.email || e.customerId
-    if (e.name === 'createUserSucceeded') {
-      value = e.user && e.user.username
-    }
-    console.log(`${e.createdAt} ${e.name} -> ${value} (${e._id})`)
-  })
+  const events = await Event.find({}, { limit: 250, sort: { createdAt: -1 } })
+  events
+    .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+    .forEach(e => {
+      let value = e.email || e.customerId || (e.user && e.user.username)
+      if (e.name === 'createUserSucceeded') {
+        value = e.user && e.user.username
+      }
+      if (e.name === 'userAuthenticated') {
+        value = e.user && e.user.username
+      }
+      if (e.name === 'createPomodoro') {
+        value = e.user && e.user.username
+      }
+
+      console.log(`${e.createdAt} ${e.name} -> ${value} (${e._id})`)
+    })
 }
