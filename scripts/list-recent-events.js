@@ -38,22 +38,23 @@ function eventToString (e) {
   const username = e.user && e.user.username
   const eventName = e.name
   const additionalInfo = additionalInfoFor(e)
+  const userId = e.user && e.user._id
 
-  return `${chalk.blue(createdAt)} ${chalk.white(e._id)} ${chalk.hex(stringToColor(eventName)).bold(eventName)} by user ${chalk.yellow(username)} ${additionalInfo}`
+  return `${chalk.blue(createdAt)} ${chalk.white(e._id)} ${chalk.hex(stringToColor(eventName)).bold(eventName)} by user ${chalk.yellow(username)} ${userId} ${additionalInfo}`
 }
 
 function additionalInfoFor (e) {
   if (e.name === 'createUserSucceeded') {
-    return e.user && e.user.username
+    return ''
   }
   if (e.name === 'userAuthenticated') {
-    return e.user && e.user.username
+    return ''
   }
   if (e.name === 'createPomodoro') {
-    return e.user && e.user.username
+    return ''
   }
   if (e.name === 'pomodoroFailedValidation') {
-    return `${e.user && e.user.username}\n\terrors: ${(e.errors || []).join(', ')}\n\tpomodoro: ${JSON.stringify(e.pomodoro || {})}`
+    return `\n\terrors: ${(e.errors || []).join(', ')}\n\tpomodoro: ${JSON.stringify(e.pomodoro || {})}`
   }
   return ''
 }
