@@ -5,9 +5,15 @@ const chalk = require('chalk')
 const stringToColor = require('string-to-color')
 
 if (require.main === module) {
-  main({ _id: process.argv[2] })
-    .then(res => {
-      console.log(res)
+  const arg = process.argv[2]
+  let _id
+  let namePattern
+  if (arg) {
+    if (arg.length === 24) _id = arg
+    else namePattern = new RegExp(arg, 'gi')
+  }
+  main({ _id, namePattern })
+    .then(() => {
       process.exit(0)
     })
     .catch(err => {
@@ -18,12 +24,16 @@ if (require.main === module) {
 
 module.exports = main
 
-async function main ({ _id }) {
+async function main ({ _id, namePattern }) {
+  const query = {}
   if (_id) {
-    return Event.findOne({ _id: _id }).then(printEvent)
+    query._id = _id
+  }
+  if (namePattern) {
+    query.name = { $regex: namePattern }
   }
 
-  const events = await Event.find({}, { limit: 250, sort: { createdAt: -1 } })
+  const events = await Event.find(query, { limit: 500, sort: { createdAt: -1 } })
   events
     .sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
     .forEach(printEvent)
