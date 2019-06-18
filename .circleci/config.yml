@@ -55,8 +55,8 @@ jobs:
           name: test_api
           command: |
             npm cache clean -f || exit 0
-            # npm i -g --unsafe-perm now
-            npm install -g --unsafe-perm now
+            # npm i -g --unsafe-perm now@15.4.0
+            npm install -g --unsafe-perm now@15.4.0
             npm i -g wait-on
             cd api
             echo -e "NODE_ENV=test\nTWITTER_CONSUMER_KEY=\nTWITTER_CONSUMER_SECRET=\nTWITTER_CALLBACK_URL=\nGITHUB_CLIENT_ID=\nGITHUB_CLIENT_SECRET=\nGITHUB_CALLBACK_URL=\nMONGO_URL=mongodb://127.0.0.1:27017/test\nHOST=api.pomodoro.cc\nPUSHER_APP_ID=\nPUSHER_KEY=\nPUSHER_SECRET=\nSENTRY_DSN=\nSTRIPE_SECRET_KEY=''\nSTRIPE_PLAN=''\nUSE_AUTH=false\nBASE_URL=http://localhost:3000\nLEVEL=info" > .env
@@ -85,8 +85,8 @@ jobs:
       - run:
           name: deploy app
           command: |
-            npm install -g --unsafe-perm now
-            # npm i -g --unsafe-perm now
+            npm install -g --unsafe-perm now@15.4.0
+            # npm i -g --unsafe-perm now@15.4.0
             cd app
             npm run deploy --silent -- --token $NOW_TOKEN
 
@@ -98,8 +98,8 @@ jobs:
       - run:
           name: deploy api
           command: |
-            npm install -g --unsafe-perm now
-            # npm i -g --unsafe-perm now
+            npm install -g --unsafe-perm now@15.4.0
+            # npm i -g --unsafe-perm now@15.4.0
             cd api
             npm run deploy --silent -- --token $NOW_TOKEN
 
