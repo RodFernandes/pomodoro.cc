@@ -66,5 +66,8 @@ function additionalInfoFor (e) {
   if (e.name === 'pomodoroFailedValidation') {
     return `\n\terrors: ${(e.errors || []).join(', ')}\n\tpomodoro: ${JSON.stringify(e.pomodoro || {})}`
   }
+  if (e.name === 'todoFailedValidation') {
+    return `\n\terrors: ${(e.errors || []).join(', ')}\n\ttodo: ${JSON.stringify(e.todo || {})}`
+  }
   return ''
 }
