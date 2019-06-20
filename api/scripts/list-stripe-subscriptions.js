@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
+require('../env')
+console.log('process.env.MONGO_URL', process.env.MONGO_URL)
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
-const User = require('../api/models/User')
+const User = require('../models/User')
 
 if (require.main === module) {
   main()

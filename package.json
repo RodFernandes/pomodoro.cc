@@ -30,10 +30,5 @@
       "assert"
     ]
   },
-  "dependencies": {
-    "chalk": "^2.4.2",
-    "monk": "^7.0.0",
-    "string-to-color": "^2.1.1",
-    "stripe": "^7.1.0"
-  }
+  "dependencies": {}
 }

@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
-const Event = require('../api/models/Event')
+require('../env')
+console.log('process.env.MONGO_URL', process.env.MONGO_URL)
+const Event = require('../models/Event')
 const chalk = require('chalk')
 const stringToColor = require('string-to-color')
 
