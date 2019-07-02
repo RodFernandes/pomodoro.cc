@@ -4,9 +4,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/pomodoro.cc
   docker:
-    - image: cypress/base:8
-      environment:
-        TERM: xterm
+    - image: node:10
     - image: mongo:3.4
 
 jobs:
@@ -65,7 +63,12 @@ jobs:
             npm t
 
   uat:
-    <<: *defaults
+    working_directory: ~/pomodoro.cc
+    docker:
+      - image: cypress/base:8
+        environment:
+          TERM: xterm
+      - image: mongo:3.4
     steps:
       - attach_workspace:
           at: ~/
