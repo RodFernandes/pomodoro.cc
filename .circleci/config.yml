@@ -22,18 +22,11 @@ jobs:
       - run: npm install
       - run: cd app ; npm install
       - run: cd api ; npm install
-      - save_cache:
-          key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
-          paths:
-            - ~/.npm
-            - ~/.cache
       - persist_to_workspace:
           root: ~/
           paths:
-            - .cache
+            # - .cache
             - pomodoro.cc
-            - .npm
-            - .cache
 
   test_app:
     <<: *defaults
