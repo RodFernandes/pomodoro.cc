@@ -118,19 +118,19 @@ workflows:
       - test_app:
           requires:
             - build
-      - test_api:
-          requires:
-            - build
+      # - test_api:
+      #     requires:
+      #       - build
       - uat:
           requires:
             - build
       - deploy_app:
           requires:
             - test_app
-            - test_api
+            # - test_api
             - uat
       - deploy_api:
           requires:
             - test_app
-            - test_api
+            # - test_api
             - uat
