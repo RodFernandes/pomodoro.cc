@@ -19,28 +19,21 @@ jobs:
           - v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
           - v2-deps-{{ .Branch }}-
           - v2-deps-
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - .cache
-            - pomodoro.cc
-
-  build_app:
-    <<: *defaults
-    steps:
       - run: npm install
+      - run: cd app ; npm install
+      - run: cd api ; npm install
       - save_cache:
           key: v2-deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
             - ~/.npm
             - ~/.cache
-      - run: cd app ; npm install
-      - run: cd api ; npm install
       - persist_to_workspace:
           root: ~/
           paths:
-            - ~/.npm
-            - ~/.cache
+            - .cache
+            - pomodoro.cc
+            - .npm
+            - .cache
 
   test_app:
     <<: *defaults
@@ -125,9 +118,6 @@ workflows:
   build_and_test:
     jobs:
       - workspace
-      - build_app:
-          requires:
-            - workspace
       - test_app:
           requires:
             - workspace
