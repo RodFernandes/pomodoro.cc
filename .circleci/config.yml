@@ -54,6 +54,7 @@ jobs:
           command: |
             npm cache clean -f || exit 0
             npm install -g now@latest
+            npm config set ignore-scripts true
             node --version
             npm --version
             npm i -g wait-on
