@@ -117,14 +117,8 @@ workflows:
     jobs:
       - build
       - test_app:
-          requires:
-            - build
       - test_api:
-          requires:
-            - build
       - uat:
-          requires:
-            - build
       - deploy_app:
           requires:
             - test_app
