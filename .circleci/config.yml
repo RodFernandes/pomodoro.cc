@@ -129,13 +129,11 @@ workflows:
             - workspace
       - deploy_app:
           requires:
-            - build_app
             - test_app
             - test_api
             - uat
       - deploy_api:
           requires:
-            - build_app
             - test_app
             - test_api
             - uat
