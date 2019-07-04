@@ -8,7 +8,7 @@ defaults: &defaults
     - image: mongo:3.4
 
 jobs:
-  build:
+  build_app:
     <<: *defaults
     steps:
       - checkout
@@ -115,17 +115,19 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
-      - test_app:
-      - test_api:
-      - uat:
+      - build_app
+      - test_app
+      - test_api
+      - uat
       - deploy_app:
           requires:
+            - build_app
             - test_app
             - test_api
             - uat
       - deploy_api:
           requires:
+            - build_app
             - test_app
             - test_api
             - uat
