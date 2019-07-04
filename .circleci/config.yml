@@ -53,8 +53,8 @@ jobs:
           name: test_api
           command: |
             npm cache clean -f || exit 0
+            npm config set ignore-scripts false
             npm install -g now@latest
-            npm config set ignore-scripts true
             node --version
             npm --version
             npm i -g wait-on
