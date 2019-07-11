@@ -45,6 +45,9 @@ jobs:
       - attach_workspace:
           at: ~/
       - run:
+        name: Switch timezone to Rome
+        command: sudo cp /usr/share/zoneinfo/Europe/Rome /etc/localtime
+      - run:
           name: test_api
           command: |
             # npm cache clean -f || exit 0
