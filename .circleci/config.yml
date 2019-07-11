@@ -46,7 +46,7 @@ jobs:
           at: ~/
       - run:
           name: Switch timezone to Rome
-          command: sudo cp /usr/share/zoneinfo/Europe/Rome /etc/localtime
+          command: cp /usr/share/zoneinfo/Europe/Rome /etc/localtime
       - run:
           name: test_api
           command: |
