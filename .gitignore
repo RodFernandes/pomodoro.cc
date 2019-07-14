@@ -24,3 +24,4 @@ api/rel
 app/.cache/
 app/dist/
 dist/
+app/cypress/fixtures/
