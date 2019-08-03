@@ -36,6 +36,8 @@
   "main": "src/index.js",
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@storybook/addon-actions": "^5.1.8",
@@ -44,7 +46,12 @@
     "@storybook/react": "^5.1.8",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-preact": "^1.1.0",
+    "babel-runtime": "^6.26.0",
     "css-loader": "^3.0.0",
     "eslint-plugin-cypress": "^2.2.1",
     "expect": "^23.6.0",
@@ -60,6 +67,23 @@
   "optionalDependencies": {
     "standard": "^10.0.3"
   },
+  "keywords": [],
+  "author": "Christian Fei",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christian-fei/pomodoro.cc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/christian-fei/pomodoro.cc/issues"
+  },
+  "homepage": "https://github.com/christian-fei/pomodoro.cc#readme",
+  "source": true,
+  "jest": {
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
   "standard": {
     "env": [
       "browser",
@@ -72,26 +96,13 @@
       "assert"
     ]
   },
-  "keywords": [],
-  "author": "Christian Fei",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/christian-fei/pomodoro.cc.git"
-  },
-  "bugs": {
-    "url": "https://github.com/christian-fei/pomodoro.cc/issues"
-  },
-  "homepage": "https://github.com/christian-fei/pomodoro.cc#readme",
-  "jest": {
-    "testURL": "http://localhost",
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
-  },
   "babel": {
     "presets": [
       "@babel/preset-env",
       "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-syntax-dynamic-import"
     ]
   },
   "alias": {

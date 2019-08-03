@@ -1,5 +1,5 @@
-const ringSoundSrc = require('../assets/audio/ring.mp3')
-const tickSoundSrc = require('../assets/audio/tick.mp3')
+import ringSoundSrc from '../assets/audio/ring.mp3'
+import tickSoundSrc from '../assets/audio/tick.mp3'
 
 const ringSound = new Audio(ringSoundSrc)
 const tickSound = new Audio(tickSoundSrc)

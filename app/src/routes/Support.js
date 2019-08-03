@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './Support.styl'
 import Productivity from '../assets/images/productivity.jpeg'
-const logo = require('../assets/images/pomodoro.cc.png')
+import logo from '../assets/images/pomodoro.cc.png'
 
 export default class Support extends Component {
   render () {
