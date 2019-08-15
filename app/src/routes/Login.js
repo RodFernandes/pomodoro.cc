@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import Twitter from '../assets/images/twitter.png'
 import GitHub from '../assets/images/github.png'
 import './Login.styl'
+import Link from '../components/utils/Link'
 
 class Login extends Component {
   render () {
@@ -32,6 +33,12 @@ class Login extends Component {
           </a>
         </div>
       </div>
+      <div className='columns'>
+        <div className='column tac'>
+          <Link to='/signup-login-email'>Signup / Login with email</Link>
+        </div>
+      </div>
+
     </div>
   }
 }
