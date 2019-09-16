@@ -127,9 +127,9 @@ workflows:
           requires:
             - test_app
             - test_api
-            - uat
+            - cypress/run
       - deploy_api:
           requires:
             - test_app
             - test_api
-            - uat
+            - cypress/run
