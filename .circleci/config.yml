@@ -70,7 +70,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - cypress/run
+      - run: cypress/run
 
   deploy_app:
     <<: *defaults
