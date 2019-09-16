@@ -71,9 +71,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/
-      - restore_cache:
-          keys:
-            - cache-{{ checksum "package.json" }}
       - run:
           name: uat
           command: |
@@ -82,12 +79,6 @@ jobs:
             cd app
             npm start & wait-on http://localhost:1234
             cypress run
-      # save npm dependencies and Cypress binary for future runs
-      - save_cache:
-          key: cache-{{ checksum "package.json" }}
-          paths:
-            - ~/.npm
-            - ~/.cache
 
   deploy_app:
     <<: *defaults
