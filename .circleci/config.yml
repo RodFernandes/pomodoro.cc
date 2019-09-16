@@ -67,21 +67,10 @@ jobs:
 
   uat:
     working_directory: ~/pomodoro.cc
-    docker:
-      - image: cypress/base:10
-        environment:
-          TERM: xterm
     steps:
       - attach_workspace:
           at: ~/
-      - run:
-          name: uat
-          command: |
-            npm i -g cypress
-            npm i -g wait-on
-            cd app
-            npm start & wait-on http://localhost:1234
-            cypress run
+      - cypress/run
 
   deploy_app:
     <<: *defaults
@@ -122,12 +111,14 @@ workflows:
       - test_api:
           requires:
             - workspace
-      - cypress/run
+      - uat
       - deploy_app:
           requires:
             - test_app
             - test_api
+            - uat
       - deploy_api:
           requires:
             - test_app
             - test_api
+            - uat
