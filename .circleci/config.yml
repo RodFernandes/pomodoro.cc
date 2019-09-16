@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  cypress: cypress-io/cypress@1.1.0
 
 # build job parameters as a template
 defaults: &defaults
@@ -119,9 +122,7 @@ workflows:
       - test_api:
           requires:
             - workspace
-      - uat:
-          requires:
-            - workspace
+      - cypress/run
       - deploy_app:
           requires:
             - test_app
