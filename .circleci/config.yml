@@ -65,19 +65,29 @@ jobs:
   uat:
     working_directory: ~/pomodoro.cc
     docker:
-      - image: cypress/base:8
+      - image: cypress/base:10
         environment:
           TERM: xterm
     steps:
       - attach_workspace:
           at: ~/
+      - restore_cache:
+          keys:
+            - cache-{{ checksum "package.json" }}
       - run:
           name: uat
           command: |
+            npm i -g cypress
             npm i -g wait-on
             cd app
             npm start & wait-on http://localhost:1234
             cypress run
+      # save npm dependencies and Cypress binary for future runs
+      - save_cache:
+          key: cache-{{ checksum "package.json" }}
+          paths:
+            - ~/.npm
+            - ~/.cache
 
   deploy_app:
     <<: *defaults
