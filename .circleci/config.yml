@@ -1,7 +1,4 @@
-version: 2.1
-
-orbs:
-  cypress: cypress-io/cypress@1.1.0
+version: 2
 
 # build job parameters as a template
 defaults: &defaults
@@ -67,10 +64,22 @@ jobs:
 
   uat:
     working_directory: ~/pomodoro.cc
+    docker:
+      - image: cypress/base:8
+        environment:
+          TERM: xterm
+      - image: mongo:3.4
     steps:
       - attach_workspace:
           at: ~/
-      - run: cypress/run
+      - run:
+          name: uat
+          command: |
+            npm i -g wait-on
+            cd app
+            npm i cypress
+            npm start & wait-on http://localhost:1234
+            npm run cypress -- run
 
   deploy_app:
     <<: *defaults
@@ -111,7 +120,9 @@ workflows:
       - test_api:
           requires:
             - workspace
-      - uat
+      - uat:
+          requires:
+            - workspace
       - deploy_app:
           requires:
             - test_app
