@@ -68,7 +68,6 @@ jobs:
       - image: cypress/base:8
         environment:
           TERM: xterm
-      - image: mongo:3.4
     steps:
       - attach_workspace:
           at: ~/
