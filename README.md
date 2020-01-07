@@ -19,11 +19,4 @@ see open [issues](https://github.com/christian-fei/pomodoro.cc/issues)
 
 View the readme of the service you would like to contribute to :)
 
-Also check out [CONTRIBUTING.md](CONTRIBUTING.md)
-
-## Development metrics
-
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/christian-fei/pomodoro.cc.svg?columns=all)](http://waffle.io/christian-fei/pomodoro.cc)
-
-[![Throughput Graph](https://graphs.waffle.io/christian-fei/pomodoro.cc/throughput.svg)](https://waffle.io/christian-fei/pomodoro.cc/metrics)
-
+Also check out [CONTRIBUTING.md](CONTRIBUTING.
